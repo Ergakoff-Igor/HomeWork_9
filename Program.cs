@@ -25,10 +25,25 @@ int m = int.Parse(Console.ReadLine()!);
 Console.Write("Введите число N: ");
 int n = int.Parse(Console.ReadLine()!);
 
-Console.WriteLine($"сумма чисел от {m} до {n} равна: {SumNumbers(m, n)}");
+// Console.WriteLine($"сумма чисел от {m} до {n} равна: {SumNumbers(m, n)}");
 
-int SumNumbers(int start, int end)
+// int SumNumbers(int start, int end)
+// {
+//     if (start > end) return 0;
+//     return start + SumNumbers(start + 1, end);
+// }
+
+// Задача 68: 
+// Напишите программу вычисления функции Аккермана с помощью рекурсии. 
+// Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+
+Console.WriteLine($"Функция Аккермана для M = {m} и N = {n} равна: {Akkerman(m, n)}");
+
+int Akkerman(int m, int n)
 {
-    if (start > end) return 0;
-    return start + SumNumbers(start + 1, end);
+    if (m == 0) return n + 1;
+    if (n == 0) return Akkerman(m-1, 1);
+    return Akkerman(m - 1, Akkerman(m, n - 1));
 }
